@@ -1,0 +1,3 @@
+@@从光盘提取iso
+
+dd if=/dev/cdrom of=/media/happy/新加卷/NHCEII_RW2.iso
