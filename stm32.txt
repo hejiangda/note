@@ -24,5 +24,21 @@ PUTCHAR_PROTOTYPE
 }
 @@end
 
-@@
+@@name cmsisrtos 线程创建
+//声明定义
+osThreadId xxxHandle;//创建句柄
 
+static void xxx(void const *argument);//线程函数
+//os init 函数中
+osThreadDef(THREAD_1,xxx,osPriorityNormal, 0,configMINIMAL_STACK_SIZE);//自定线程名，线程实际函数，os优先级，实例，栈大小
+xxxHandle = osThreadCreate(osThread(THREAD_1),NULL);//创建线程
+
+@@end
+
+@@name cmsisrtos 常用线程函数
+
+osStatus osThreadSuspend (osThreadId thread_id)//Suspend execution of a thread.
+osStatus osThreadResume (osThreadId thread_id)//Resume execution of a suspended thread.
+
+
+@@end
