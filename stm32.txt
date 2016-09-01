@@ -42,3 +42,9 @@ osStatus osThreadResume (osThreadId thread_id)//Resume execution of a suspended 
 
 
 @@end
+
+@@name hal_spi
+
+HAL_SPI_Transmit(&hspi1,&Cbyte,1,0xFFFFFF);
+@@end
+
