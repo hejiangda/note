@@ -19,5 +19,9 @@ void LcmClear(void);
 void LcmInit(void);
 //ÏÔÊ¾³ÌĞò
 void  dianxian(void);
-
+//ÏÔÊ¾×Ö·û
+void  PUTchar8x8(uint8_t row,uint8_t col,uint8_t count,uint8_t *put);
+void  PUTchar8x16(uint8_t row,uint8_t col,uint8_t count,uint8_t *put);
+void  PUTchar16x16(uint8_t row,uint8_t col,uint8_t count,uint8_t  *put);
+void  PUTchar24x24(uint8_t row,uint8_t col,uint8_t count,uint8_t  *put);
 #endif
