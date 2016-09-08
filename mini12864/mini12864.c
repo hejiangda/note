@@ -1,7 +1,6 @@
 #include "stm32f1xx_hal.h"
 
 #include "spi.h"
-#include "usart.h"
 #include "mini12864.h"
 
 //РґЦёБо

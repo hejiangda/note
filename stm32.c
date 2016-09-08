@@ -24,6 +24,22 @@ PUTCHAR_PROTOTYPE
 }
 @@end
 
+@@name scanf重定向
+/**
+  * 函数功能: 重定向c库函数getchar,scanf到DEBUG_USARTx
+  * 输入参数: 无
+  * 返 回 值: 无
+  * 说    明：无
+  */
+int fgetc(FILE * f)
+{
+  uint8_t ch = 0;
+  HAL_UART_Receive(&huart1,&ch, 1, 0xffff);
+  return ch;
+}
+
+@@end
+
 @@name cmsisrtos 线程创建
 //声明定义
 osThreadId xxxHandle;//创建句柄
@@ -84,13 +100,14 @@ htim3.Init.Period = 1999;//计数,实际+1
 sConfigOC.OCMode = TIM_OCMODE_PWM1;//pwn模式 
 
 
-    __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,180);//最右
-    HAL_Delay(500);
-    
-		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,180+175);//中间
-    HAL_Delay(500);
-		
-    __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,530);//最左
-    HAL_Delay(500);
+__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,70);//最右
+HAL_Delay(500);
+
+__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,150);//中间
+HAL_Delay(500);
+
+__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_1,230);//最左
+HAL_Delay(500);
 
 @end
+
